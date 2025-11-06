@@ -1,0 +1,74 @@
+# Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.log
+.env
+venv/
+env/
+.venv/
+
+# IDE / Editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Kafka & Zookeeper logs
+
+kafka-logs/
+zookeeper/
+tmp/
+logs/
+
+# MySQL dumps / credentials
+
+*.db
+*.sqlite3
+*.bak
+*.dump
+*.cnf
+
+# Flask cache / instance
+
+instance/
+*.pid
+
+# Project-specific
+
+**cache**/
+**output**/
+*.json
+
+# Virtual environment / dependency cache
+
+*.egg
+.eggs/
+pip-wheel-metadata/
+dist/
+build/
+
+# Other generated data
+
+nohup.out
+*.tar
+*.gz
+*.bak
+*.old
+*.retry
+
+# Optional: Ignore environment-specific configs
+
+config/*.local
+config/*.dev
+config/*.test
