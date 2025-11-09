@@ -633,7 +633,7 @@ class DynamicKafkaProducer:
         print("DYNAMIC KAFKA PRODUCER WITH AUTO-STREAMING")
         print("="*60)
         
-        # Start all threads (4 threads now!)
+        # START THREADS
         t1 = threading.Thread(target=self.publisher_thread, daemon=True, name="Publisher")
         t2 = threading.Thread(target=self.auto_streaming_thread, daemon=True, name="AutoStreaming")
         t3 = threading.Thread(target=self.input_listener_thread, daemon=True, name="InputListener")
@@ -647,7 +647,7 @@ class DynamicKafkaProducer:
         print(f"\n✓ All threads started successfully")
         print(f"✓ Auto-streaming: {'ENABLED' if self.auto_stream else 'DISABLED'}\n")
         
-        # Keep main thread alive
+        # MAIN GUY ALIVE
         try:
             while self.running:
                 time.sleep(1)
@@ -655,22 +655,22 @@ class DynamicKafkaProducer:
             print("\n⚠ Shutting down producer...")
             self.running = False
         
-        # Wait for threads
+        # WAITING
         t1.join(timeout=3)
         t2.join(timeout=3)
         t3.join(timeout=3)
         t4.join(timeout=3)
         
-        # Final statistics
+        # STATS 
         self.print_statistics()
         
-        # Close connections
+        # CLOSE ALL
         self.producer.close()
         self.admin_client.close()
         print("✓ Producer shutdown complete")
 
 if __name__ == "__main__":
-    # Parse command line arguments
+    # CHOICES PARCING
     auto_stream = True      
     if len(sys.argv) > 1:
         if sys.argv[1].lower() == '--no-auto':
